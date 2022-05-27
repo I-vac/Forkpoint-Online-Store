@@ -1,6 +1,11 @@
 .footer-wrapper {
-    .footerNotifier {
-        font-weight: bold;
-        font-size: 30px;
+    .footer-divider {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:#1e1e1e;
+        color:white;
+        text-align: center;
     }
 }

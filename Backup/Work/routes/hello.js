@@ -12,7 +12,7 @@ module.exports = function routeHello(req, res) {
         _,
 
         // Template data
-        title: 'Hello World!',
+        title: 'Hello',
         items,
       });
       client.close();

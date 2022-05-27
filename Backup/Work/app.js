@@ -10,6 +10,7 @@ const session = require('express-session');
 const routes = {
   index: require('./routes/index'),
   hello: require('./routes/hello'),
+  home: require('./routes/home'),
 };
 
 const app = express();
@@ -39,8 +40,8 @@ app.use(express.errorHandler());
 
 // App routes
 app.get('/', routes.index);
-app.get('/hello/', routes.hello);
-app.get('/home/', routes.home);
+app.get('/hello', routes.hello);
+app.get('/home', routes.home);
 
 
 // Run server

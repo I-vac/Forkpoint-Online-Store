@@ -7,5 +7,25 @@
   	
     <body>
         <div class="header-wrapper">
-            <span class="headerNotification">Hi! I'm header.ejs</span>
+            <div class="saleMsg">FREE SHIPPING ON ALL ORDERS ABOVE 99€</div>
+
+              <div class="top-bar" id="responsive-menu">
+                <div class="top-bar-left">
+                  <ul class="dropdown menu" data-dropdown-menu>
+                    <li <%if(title='Hello'){>% :active<%}else{%> :inactive <%}%>><a href='hello'>STORE</a></li>
+                    <li><a href="#0">COMPANY</a></li>
+                    <li><a href="#0">AIRBAG</a></li>
+                    <li><a href="#0">ATHLETES</a></li>
+                    <li><a href="#0">NEWS</a></li>
+                  </ul>
+                </div>
+                <div class="top-bar-right">
+                  <ul class="menu">
+                    <li><a href="#0">Store Locator</a></li>
+                    <li><a href="#0">Login</a></li>
+                    <li><a href="#0">Order status</a></li>
+                  </ul>
+                </div>
+              </div>
         </div>
+    </body>
