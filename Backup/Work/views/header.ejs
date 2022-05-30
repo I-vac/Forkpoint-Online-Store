@@ -12,8 +12,8 @@
               <div class="top-bar" id="responsive-menu">
                 <div class="top-bar-left">
                   <ul class="dropdown menu" data-dropdown-menu>
-                    <li <%if(title='Hello'){>% :active<%}else{%> :inactive <%}%>><a href='hello'>STORE</a></li>
-                    <li><a href="#0">COMPANY</a></li>
+                    <li ><a <%if (title==='hello'){%> <%= 'class=active'%> <%}%> href='hello'>HELLO</a></li>
+                    <li><a <%if (title==='home'){%> <%= 'class=active'%> <%}%> href='home'>HOME</a></li>
                     <li><a href="#0">AIRBAG</a></li>
                     <li><a href="#0">ATHLETES</a></li>
                     <li><a href="#0">NEWS</a></li>
@@ -27,5 +27,12 @@
                   </ul>
                 </div>
               </div>
+
+              <nav role="navigation">
+                <ul class="breadcrumbs">
+                  <li><a href='home'>Home</a></li>
+                  <li><a href='hello'>Hello</a></li>
+                </ul>
+              </nav>
         </div>
     </body>

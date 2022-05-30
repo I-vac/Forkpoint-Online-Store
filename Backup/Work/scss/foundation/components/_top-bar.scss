@@ -175,6 +175,10 @@ $topbar-unstack-breakpoint: medium !default;
     }
   }
 }
-.top-bar li{
-  :active{background-color: white;}
+.top-bar {
+  .active{
+    background-color: white;
+    color:black;
+  
+  }
 }
