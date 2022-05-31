@@ -5201,7 +5201,7 @@ a.thumbnail {
   color: white;
   text-align: center; }
 
-body {
+.home-page {
   background: url("/images/home-bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
