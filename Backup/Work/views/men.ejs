@@ -1,0 +1,36 @@
+<%-include('header.ejs',{title:'men'}) %>
+
+    <div class="bodyContainer">
+       
+        <ol>
+            <% _.each(items, function(topC) { %>
+            <li>
+                <h1><%= topC.name %></h1>
+                <p><%= topC.page_description %></p>
+                <% if (topC.image) { %>
+                <div>
+                    <img src="/images/<%= topC.image %>">
+                </div>
+                <% } %>
+                <div>
+                    <ol>
+                        <% _.each(topC.categories, function(subC) { %>
+                        <li>
+                            <h2><%= subC.name %></h1>
+                            <% if (subC.image) { %>
+                            <div>
+                                <img src="/images/<%= subC.image %>">
+                            </div>
+                            <% } %>
+                            <p><%= subC.page_description %></p>
+                           <button>View products</button>
+                        </li>
+                        <% }); %>                    
+                    </ol>
+                </div>    
+            </li>
+            <% }); %>
+        </ol>
+    </div>
+
+<%- include footer.ejs %>

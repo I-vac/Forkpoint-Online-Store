@@ -12,10 +12,10 @@
               <div class="top-bar" id="responsive-menu">
                 <div class="top-bar-left">
                   <ul class="dropdown menu" data-dropdown-menu>
-                    <li ><a <%if (title==='hello'){%> <%= 'class=active'%> <%}%> href='hello'>HELLO</a></li>
                     <li><a <%if (title==='home'){%> <%= 'class=active'%> <%}%> href='home'>HOME</a></li>
-                    <li><a href="#0">AIRBAG</a></li>
-                    <li><a href="#0">ATHLETES</a></li>
+                    <li ><a <%if (title==='hello'){%> <%= 'class=active'%> <%}%> href='hello'>HELLO</a></li>
+                    <li><a <%if (title==='men'){%> <%= 'class=active'%> <%}%> href='men'>MEN</a></li>
+                    <li><a <%if (title==='women'){%> <%= 'class=active'%> <%}%> href="women">WOMEN</a></li>
                     <li><a href="#0">NEWS</a></li>
                   </ul>
                 </div>
@@ -32,6 +32,8 @@
                 <ul class="breadcrumbs">
                   <li><a href='home'>Home</a></li>
                   <li><a href='hello'>Hello</a></li>
+                  <li><a href='men'>Men</a></li>
+                  <li><a href="#">Women</a></li>
                 </ul>
               </nav>
         </div>

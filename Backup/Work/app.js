@@ -11,6 +11,8 @@ const routes = {
   index: require('./routes/index'),
   hello: require('./routes/hello'),
   home: require('./routes/home'),
+  men: require('./routes/men'),
+  women: require('./routes/women'),
 };
 
 const app = express();
@@ -42,6 +44,8 @@ app.use(express.errorHandler());
 app.get('/', routes.index);
 app.get('/hello', routes.hello);
 app.get('/home', routes.home);
+app.get('/men', routes.men);
+app.get('/women', routes.women);
 
 
 // Run server
