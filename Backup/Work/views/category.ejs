@@ -1,8 +1,10 @@
-<%-include('header.ejs',{title:'women'}) %>
+<%- include header.ejs %>
 
-    <div class="bodyContainer">
+    <div class="bodyCategory">
        
         <ol>
+            <% if(items.length != 0) {%>
+            <span>
             <% _.each(items, function(topC) { %>
             <li>
                 <h1><%= topC.name %></h1>
@@ -30,7 +32,12 @@
                 </div>
             </li>
             <% }); %>
+        </span>
+        <%} else {%>
+            <h1>Page not found: The category name is invalid !</h1>
+            <% } %>
         </ol>
+    
     </div>
 
 <%- include footer.ejs %>

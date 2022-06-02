@@ -5214,3 +5214,13 @@ a.thumbnail {
 
 .logo {
   padding-top: 300px; }
+
+.bodyCategory {
+  margin: 0 10% 0 10%;
+  max-width: 800px; }
+  .bodyCategory p {
+    padding-top: 15px; }
+  .bodyCategory .button {
+    border-radius: 25px; }
+  .bodyCategory ol li {
+    list-style-type: none; }
