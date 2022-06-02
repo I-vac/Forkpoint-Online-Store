@@ -25,9 +25,24 @@
                             </div>
                             <% } %>
                             <p><%= subC.page_description %></p>
-                           <a href="<%=subC.categories%>" class="button">View products</a>
+
+                            <ol>
+                                <% _.each(subC.categories, function(lastC) { %>
+                                    <li>
+                                        <h2><%= lastC.name %></h1>
+                                        <% if (lastC.image) { %>
+                                        <div>
+                                            <img src="/images/<%= lastC.image %>">
+                                        </div>
+                                        <% } %>
+                                        <p><%= lastC.page_description %></p>
+                                        <a href="<%=lastC.categories%>" class="button">View products</a>
+                                    </li>
+                                    <% }); %>
+                            </ol>
                         </li>
                         <% }); %>
+                           
                     </ol>
                 </div>
             </li>
