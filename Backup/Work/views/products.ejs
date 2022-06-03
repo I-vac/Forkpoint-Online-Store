@@ -1,16 +1,36 @@
 <%-include header.ejs %>
 
     <div class="bodyContainer">
-        <ol>
-            <% _.each(items, function(product) { %>
-            <li>
-                <h1><%= product.name %></h1>
-                <p><%= product.short_description %></p>
-                <p><%= product.price %></p>   
-                <a href="<%= %>" class="button">More info</a>
-            </li>
-            <% }); %>
-        </ol>
+
+        
+        <div class="singleItem">
+            <ol class="grid-x vertical">
+                <% _.each(items, function(product) { %>
+                    <div class="cell small-6">
+                <li>
+                    <h1 class="name"><%= product.name %></h1>
+
+                    <% if ( product && product.image_groups && product.image_groups[0] && product.image_groups[0].images 
+                            && product.image_groups[0].images[0] && product.image_groups[0].images[0].link)
+                            { %>
+                        <div>
+                            <img class="image" src="/images/<%= product.image_groups[0].images[0].link%>">
+                        </div>
+                        <% } else {%>
+                            <p>Image not Available</p>
+                            <%}%>
+
+                    <p class="description"><%= product.short_description %></p>
+
+                    <p class="price">Price: <%= product.currency %> <%= product.price %></p>
+
+                    <a href="<%= %>" class="button">More info</a>
+                </li>
+                <% }); %>
+             </div>
+            </ol>
+        </div>
+    
     </div>
 
 <%- include footer.ejs %>
