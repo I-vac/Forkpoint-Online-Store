@@ -1,0 +1,33 @@
+.productCard{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 100px;
+    justify-content: space-between;
+    .name{
+        font-size:20px;
+        text-align: left;
+    }
+    .button{
+        border-radius: 25px;
+    }
+
+    
+    .content{
+        display: flex;
+        flex-wrap: nowrap;
+        text-align: left;
+        column-gap: 10px;
+
+        .information{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+                .bottomInfo{
+                    display: flex;
+                    flex-direction: row;
+                    gap:30px;
+                }
+        }
+    }   
+}
