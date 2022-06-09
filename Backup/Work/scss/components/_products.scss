@@ -1,33 +1,73 @@
-.productCard{
+.productCardContainer{
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     row-gap: 100px;
-    justify-content: space-between;
-    .name{
-        font-size:20px;
-        text-align: left;
-    }
-    .button{
-        border-radius: 25px;
-    }
-
+    gap:15px;
+   
     
-    .content{
-        display: flex;
-        flex-wrap: nowrap;
-        text-align: left;
-        column-gap: 10px;
-
-        .information{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-                .bottomInfo{
-                    display: flex;
-                    flex-direction: row;
-                    gap:30px;
-                }
+    .productCard{
+        border:2px transparent;
+        padding: 0;
+        position: relative;
+        max-width: 300px;
+        
+        &:hover{
+            border:2px solid black;
         }
-    }   
+       
+        .content{
+            padding-left: 15px;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            text-align: left;
+            column-gap: 10px;
+        }
+    
+        .color_variations{
+            display: flex;
+            flex-direction: row;
+            height: 20px;
+            width: 20px;
+            gap:10px;
+            margin-top: 10px;
+        }
+    
+        .name{
+            margin-top: 8px;
+            font-size:15px;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        .image{
+            text-align: center;
+            width: 100%;
+        }
+        .price{
+            padding-left: 15px;
+            color: #a6a6a6;
+        }
+        .ribbon{
+            width:150px;
+            height:150px;
+            position:absolute;
+            top: -10px;
+            right: -10px;
+            overflow:hidden;
+            span{
+                width:225px;
+                display:block;
+                position: absolute;
+                top:30px;
+                left: -25px;
+                background-color: red;
+                padding:15px 0px;
+                transform: rotate(45deg);
+                text-align: center;
+                color: #fff 
+            }
+        }
+       
+    }
 }

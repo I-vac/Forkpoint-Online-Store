@@ -1,27 +1,46 @@
 <%-include header.ejs %>
     <div class="bodyContainer">
         <div >
-            <ol class="row productCard">
+            <ol class="row productCardContainer">
                 <% _.each(items, function(product) { %>   
-                <li class="columns large-5">
-                    <h1 class="name"><%= product.name %></h1>
-
+                <li class="columns large-3 productCard">
+                    
                     <% if ( product && product.image_groups && product.image_groups[3] && product.image_groups[3].images 
                             && product.image_groups[3].images[0] && product.image_groups[3].images[0].link)
                             { %>
-                                <div class="content">
-                            <img class="image" src="/images/<%= product.image_groups[3].images[0].link%>">
-                        <% } else {%>
-                            <p>Image not Available</p>
+                                
+
+                                <img class="image" src="/images/<%= product.image_groups[3].images[0].link%>">
+                                <% if (product.c_isSale === true){ %>
+                                    <div class="ribbon">
+                                        <span>SALE</span>
+                                    </div>
+                                <% } else {%> 
+                                    <div class="ribbon" style="display:none"></div>
+                                <%}%>
+                         <% } else {%>
+                                <p>Image not Available</p>
                             <%}%>
-                    <div class="information">
-                    <p class="description"><%= product.short_description %></p>
-                        <div class="bottomInfo">
-                    <p class="price">Price: <%= product.currency %> <%= product.price %></p>
-                    <a href="<%= %>" class="button">More info</a>
-                         </div>
-                     </div>
-                    </div>
+                        <div class="content">
+                          
+                                <div class="color_variations">
+                                    <% _.each(product.image_groups, function(image_group) { %>
+                                        <% if (image_group.view_type === "swatch"){ %>
+                                            <% _.each(image_group.images, function (link){ %>
+                                                <% if (!!link.link){ %>
+                                                
+                                                    <img  src="/images/<%= link.link%>"></img>
+                                                
+                                                <% } %>
+                                            <% }) %>
+                                        <%  } %>
+                                    <% }); %>
+                                </div>
+                                
+                                <h3 class="name"><%= product.name %></h3>
+                        </div>
+                        <hr style="margin:0">
+                        <div class="price"><%= product.price %> <%= product.currency %></div>
                 </li>
                 <% }); %>
             </ol>

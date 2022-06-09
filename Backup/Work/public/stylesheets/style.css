@@ -3818,27 +3818,59 @@ a.thumbnail {
   .bodyCategory ol li {
     list-style-type: none; }
 
-.productCard {
+.productCardContainer {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   row-gap: 100px;
-  justify-content: space-between; }
-  .productCard .name {
-    font-size: 20px;
-    text-align: left; }
-  .productCard .button {
-    border-radius: 25px; }
-  .productCard .content {
-    display: flex;
-    flex-wrap: nowrap;
-    text-align: left;
-    column-gap: 10px; }
-    .productCard .content .information {
+  gap: 15px; }
+  .productCardContainer .productCard {
+    border: 2px transparent;
+    padding: 0;
+    position: relative;
+    max-width: 300px; }
+    .productCardContainer .productCard:hover {
+      border: 2px solid black; }
+    .productCardContainer .productCard .content {
+      padding-left: 15px;
       display: flex;
+      flex-wrap: nowrap;
       flex-direction: column;
-      justify-content: space-between; }
-      .productCard .content .information .bottomInfo {
-        display: flex;
-        flex-direction: row;
-        gap: 30px; }
+      text-align: left;
+      column-gap: 10px; }
+    .productCardContainer .productCard .color_variations {
+      display: flex;
+      flex-direction: row;
+      height: 20px;
+      width: 20px;
+      gap: 10px;
+      margin-top: 10px; }
+    .productCardContainer .productCard .name {
+      margin-top: 8px;
+      font-size: 15px;
+      text-align: left;
+      text-transform: uppercase; }
+    .productCardContainer .productCard .image {
+      text-align: center;
+      width: 100%; }
+    .productCardContainer .productCard .price {
+      padding-left: 15px;
+      color: #a6a6a6; }
+    .productCardContainer .productCard .ribbon {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      overflow: hidden; }
+      .productCardContainer .productCard .ribbon span {
+        width: 225px;
+        display: block;
+        position: absolute;
+        top: 30px;
+        left: -25px;
+        background-color: red;
+        padding: 15px 0px;
+        transform: rotate(45deg);
+        text-align: center;
+        color: #fff; }
