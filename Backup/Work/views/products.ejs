@@ -3,39 +3,34 @@
         <div >
             <ol class="row productCardContainer">
                 <% _.each(items, function(product) { %>   
-                <li class="columns large-3 productCard">
-                    
-                    <% if ( product && product.image_groups && product.image_groups[3] && product.image_groups[3].images 
-                            && product.image_groups[3].images[0] && product.image_groups[3].images[0].link)
-                            { %>
-                                
-
-                                <img class="image" src="/images/<%= product.image_groups[3].images[0].link%>">
-                                <% if (product.c_isSale === true){ %>
+                    <li class="columns large-3 productCard">
+                        <% let bool = true; %>
+                        <% _.each(product.image_groups, function(image_group) { %>
+                            
+                            <% if (image_group.view_type === "medium" && image_group.images[0].link && bool){ %>
+                                <img  class="image" src="/images/<%= image_group.images[0].link%>"></img>
+                                <% bool = false; %>
+                                <% if(product.c_isSale === true) { %>
                                     <div class="ribbon">
                                         <span>SALE</span>
                                     </div>
-                                <% } else {%> 
-                                    <div class="ribbon" style="display:none"></div>
-                                <%}%>
-                         <% } else {%>
-                                <p>Image not Available</p>
-                            <%}%>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+
                         <div class="content">
-                          
-                                <div class="color_variations">
-                                    <% _.each(product.image_groups, function(image_group) { %>
-                                        <% if (image_group.view_type === "swatch"){ %>
-                                            <% _.each(image_group.images, function (link){ %>
-                                                <% if (!!link.link){ %>
-                                                
-                                                    <img  src="/images/<%= link.link%>"></img>
-                                                
-                                                <% } %>
-                                            <% }) %>
-                                        <%  } %>
-                                    <% }); %>
-                                </div>
+                            <div class="color_variations">
+                                <% _.each(product.image_groups, function(image_group){ %>
+                                    <% if (image_group.view_type === "swatch"){ %>
+                                        <% _.each(image_group.images, function(link){ %>
+                                            <% if (!!link.link){ %>
+                                                <img src="/images/<%= link.link %>"></img>
+                                            <% } %>
+                                       <% }) %>
+                                   <% } %>
+                               <% }); %> 
+                                
+                            </div>
                                 
                                 <h3 class="name"><%= product.name %></h3>
                         </div>

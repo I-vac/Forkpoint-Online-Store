@@ -1,4 +1,7 @@
 @charset "UTF-8";
+:root {
+  font-size: 10px; }
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.4.3
@@ -3776,14 +3779,14 @@ a.thumbnail {
   clear: both; }
 
 .header-wrapper .saleMsg {
-  font-size: 15px;
+  font-size: 1.5rem;
   text-align: center;
   color: white;
   background-color: #e70026; }
 
 .body-wrapper .bodyNotifier {
   font-weight: bold;
-  font-size: 30px; }
+  font-size: 3rem; }
 
 .footer-wrapper .footer-divider {
   position: fixed;
@@ -3802,19 +3805,19 @@ a.thumbnail {
   background-size: cover; }
 
 .text {
-  padding-top: 400px;
+  padding-top: 40rem;
   color: aliceblue; }
 
 .logo {
-  padding-top: 300px; }
+  padding-top: 30rem; }
 
 .bodyCategory {
   margin: 0 10% 0 10%;
-  max-width: 800px; }
+  max-width: 80rem; }
   .bodyCategory p {
-    padding-top: 15px; }
+    padding-top: 1.5rem; }
   .bodyCategory .button {
-    border-radius: 25px; }
+    border-radius: 2.5rem; }
   .bodyCategory ol li {
     list-style-type: none; }
 
@@ -3822,55 +3825,58 @@ a.thumbnail {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 100px;
-  gap: 15px; }
+  row-gap: 10rem;
+  gap: 1.5rem; }
   .productCardContainer .productCard {
-    border: 2px transparent;
+    border: 2px solid white;
     padding: 0;
     position: relative;
-    max-width: 300px; }
+    flex-basis: 30rem;
+    max-width: 30rem;
+    min-width: 30rem;
+    width: 30rem; }
     .productCardContainer .productCard:hover {
       border: 2px solid black; }
     .productCardContainer .productCard .content {
-      padding-left: 15px;
+      padding-left: 1.5rem;
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
       text-align: left;
-      column-gap: 10px; }
+      column-gap: 1rem; }
     .productCardContainer .productCard .color_variations {
       display: flex;
       flex-direction: row;
-      height: 20px;
-      width: 20px;
-      gap: 10px;
-      margin-top: 10px; }
+      height: 2rem;
+      width: 2rem;
+      gap: 1rem;
+      margin-top: 1rem; }
     .productCardContainer .productCard .name {
-      margin-top: 8px;
-      font-size: 15px;
+      margin-top: 0.8rem;
+      font-size: 1.5rem;
       text-align: left;
       text-transform: uppercase; }
     .productCardContainer .productCard .image {
       text-align: center;
       width: 100%; }
     .productCardContainer .productCard .price {
-      padding-left: 15px;
+      padding-left: 1.5rem;
       color: #a6a6a6; }
     .productCardContainer .productCard .ribbon {
-      width: 150px;
-      height: 150px;
+      width: 15rem;
+      height: 15rem;
       position: absolute;
-      top: -10px;
-      right: -10px;
+      top: 0;
+      right: 0;
       overflow: hidden; }
       .productCardContainer .productCard .ribbon span {
-        width: 225px;
+        width: 22.5rem;
         display: block;
         position: absolute;
-        top: 30px;
-        left: -25px;
+        top: 3rem;
+        left: -2.5rem;
         background-color: red;
-        padding: 15px 0px;
+        padding: 1.5rem 0;
         transform: rotate(45deg);
         text-align: center;
         color: #fff; }
