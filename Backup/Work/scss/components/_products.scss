@@ -5,15 +5,19 @@
     row-gap: 10rem;
     gap:1.5rem;
    
+    a{
+        color:inherit;
+        text-decoration: inherit;
+    }
     
     .productCard{
         border:2px solid white;
         padding: 0;
         position: relative;
-        flex-basis: 30rem;
-        max-width: 30rem;
-        min-width: 30rem;
-        width: 30rem;
+        flex-basis: 20rem;
+        max-width: 20rem;
+        min-width: 20rem;
+        width: 20rem;
         
         &:hover{
             border:2px solid black;
@@ -48,6 +52,7 @@
             width: 100%;
         }
         .price{
+            font-size: 1.2rem;
             padding-left: 1.5rem;
             color: #a6a6a6;
         }
@@ -59,18 +64,22 @@
             right: 0;
             overflow:hidden;
             span{
-                width:22.5rem;
+                width:25.5rem;
                 display:block;
                 position: absolute;
-                top:3rem;
-                left: -2.5rem;
+                top: -1rem;
+                left: 0.3rem;
                 background-color: red;
-                padding:1.5rem 0;
+                padding:2rem 0;
+                padding-bottom: 0.5rem;
                 transform: rotate(45deg);
                 text-align: center;
-                color: #fff 
+                color: #fff;
+                font-size: 1.3rem;
             }
         }
-       
+
+        
     }
+   
 }

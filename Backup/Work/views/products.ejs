@@ -3,7 +3,8 @@
         <div >
             <ol class="row productCardContainer">
                 <% _.each(items, function(product) { %>   
-                    <li class="columns large-3 productCard">
+                    <a href="#">
+                    <li class=" productCard">
                         <% let bool = true; %>
                         <% _.each(product.image_groups, function(image_group) { %>
                             
@@ -31,12 +32,12 @@
                                <% }); %> 
                                 
                             </div>
-                                
                                 <h3 class="name"><%= product.name %></h3>
                         </div>
                         <hr style="margin:0">
                         <div class="price"><%= product.price %> <%= product.currency %></div>
                 </li>
+                </a>
                 <% }); %>
             </ol>
         </div>

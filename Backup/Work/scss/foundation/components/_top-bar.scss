@@ -28,7 +28,7 @@ $topbar-input-width: 200px !default;
 
 /// Breakpoint at which top bar switches from mobile to desktop view.
 /// @type Breakpoint
-$topbar-unstack-breakpoint: medium !default;
+$topbar-unstack-breakpoint: small !default;
 
 /// Adds styles for a top bar container.
 @mixin top-bar-container {
@@ -83,7 +83,7 @@ $topbar-unstack-breakpoint: medium !default;
     .top-bar-right {
       flex: 0 0 100%;
       max-width: 100%;
-      margin-left: 140px;
+      margin-left: 60px;
       margin-right: 60px;
     }
   }
@@ -162,7 +162,7 @@ $topbar-unstack-breakpoint: medium !default;
       padding: $topbar-title-spacing;
 
       .menu-icon {
-        bottom: 2px;
+        bottom: 0.2rem;
       }
     }
 
@@ -179,6 +179,5 @@ $topbar-unstack-breakpoint: medium !default;
   .active{
     background-color: white;
     color:black;
-  
   }
 }

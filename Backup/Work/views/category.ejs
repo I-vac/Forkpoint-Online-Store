@@ -34,7 +34,10 @@
                                         <div>
                                             <img src="/images/<%= lastC.image %>">
                                         </div>
+                                        <% } else { %>
+                                            <img style="max-height: 140px;"src="/images/not-available.jpg" />
                                         <% } %>
+
                                         <p><%= lastC.page_description %></p>
                                         <a href="./<%=topC.id%>/<%=lastC.id%>" class="button">View products</a>
                                     </li>
