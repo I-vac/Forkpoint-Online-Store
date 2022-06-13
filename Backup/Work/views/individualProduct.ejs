@@ -3,12 +3,11 @@
         <div >
             <ol class="row productCardContainer">
                 <% _.each(items, function(product) { %>   
-                    <a href="/product/<%=product.master.master_id%>">
-                    <li class=" productCard">
+                    <li class="productCard">
                         <% let bool = true; %>
                         <% _.each(product.image_groups, function(image_group) { %>
                             
-                            <% if (image_group.view_type === "medium" && image_group.images[0].link && bool){ %>
+                            <% if (image_group.view_type === "large" && image_group.images[0].link && bool){ %>
                                 <img  class="image" src="/images/<%= image_group.images[0].link%>"></img>
                                 <% bool = false; %>
                                 <% if(product.c_isSale === true) { %>

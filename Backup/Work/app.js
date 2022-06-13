@@ -13,6 +13,7 @@ const routes = {
   home: require('./routes/home'),
   category: require('./routes/category'),
   products: require('./routes/products'),
+  individualProduct: require('./routes/individualProduct'),
 };
 
 const app = express();
@@ -46,6 +47,7 @@ app.get('/hello', routes.hello);
 app.get('/home', routes.home);
 app.get('/category/:id', routes.category);
 app.get('/category/:id/:primary_category_id', routes.products);
+app.get('/product/:master_id', routes.individualProduct);
 
 
 // Run server
