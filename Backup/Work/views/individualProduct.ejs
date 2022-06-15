@@ -1,44 +1,73 @@
 <%-include header.ejs %>
-    <div class="bodyContainer">
-        <div >
-            <ol class="row productCardContainer">
-                <% _.each(items, function(product) { %>   
-                    <li class="productCard">
-                        <% let bool = true; %>
-                        <% _.each(product.image_groups, function(image_group) { %>
-                            
-                            <% if (image_group.view_type === "large" && image_group.images[0].link && bool){ %>
-                                <img  class="image" src="/images/<%= image_group.images[0].link%>"></img>
-                                <% bool = false; %>
-                                <% if(product.c_isSale === true) { %>
-                                    <div class="ribbon">
-                                        <span>SALE</span>
-                                    </div>
+    <div class="row container">
+        <div class="mainImage">
+            <% let bool = true; %>
+            <% _.each(product.image_groups, function(image_group) { %>
+                <% if (image_group.view_type === "large" && image_group.images[0].link && bool){ %>
+                    <img  class="image" src="/images/<%= image_group.images[0].link%>"></img>
+                    <% bool = false; %>
+                <% } %>
+            <% }); %> 
+        </div>
+        <div class="mainContent">
+            <div class="productHeader">
+                <div class="itemNumber">Item No. <%=product.id %></div>
+                <hr style="margin:0">
+                <div class="productName"><%=product.name%></div>
+                <div class="productPrice"><%=product.price%> <%= product.currency %></div>
+                <hr style="margin:0">
+            </div>
+            <div class="colorVariations">
+                <p>Color</p>
+                <div class="color">
+                
+                    <% _.each(product.image_groups, function(image_group){ %>
+                        <% if (image_group.view_type === "swatch"){ %>
+                            <% _.each(image_group.images, function(link){ %>
+                                <% if (!!link.link){ %>
+                                    <img style="border:1px solid black" src="/images/<%= link.link %>"></img>
                                 <% } %>
-                            <% } %>
-                        <% }); %>
-
-                        <div class="content">
-                            <div class="color_variations">
-                                <% _.each(product.image_groups, function(image_group){ %>
-                                    <% if (image_group.view_type === "swatch"){ %>
-                                        <% _.each(image_group.images, function(link){ %>
-                                            <% if (!!link.link){ %>
-                                                <img src="/images/<%= link.link %>"></img>
-                                            <% } %>
-                                       <% }) %>
-                                   <% } %>
-                               <% }); %> 
-                                
-                            </div>
-                                <h3 class="name"><%= product.name %></h3>
-                        </div>
-                        <hr style="margin:0">
-                        <div class="price"><%= product.price %> <%= product.currency %></div>
-                </li>
-                </a>
+                        <% }) %>
+                    <% } %>
                 <% }); %>
-            </ol>
+                </div>
+            </div>
+
+            
+            <div class="sizeNumber">
+                <div>Size</div>
+                <div class="sizes">
+                <% _.each(product.variation_attributes, function(variations){ %>
+                    <% if (variations.id === "size"){%>
+                        <% _.each(variations.values, function(value){%>
+                            <% if (value.orderable === true){ %>
+                                <div ><%=value.value%></div>
+                            <%}%>
+                        <%})%>
+                    <%}%>
+                <% })%>
+                </div>
+            </div>
+            
+            <div class="images">
+                <button id="minus">-</button>
+                <input type="number" value="0" id="input"/>
+                <button id="plus">+</button>
+                <hr style="margin:0">
+                <p>Share</p>
+                <img src="/images/fb-logo.png"/>
+                <img src="/images/twitter-logo.png"/>
+                <img src="/images/instagram-logo.png"/>
+                <img src="/images/heart.png"/>
+                <h1>ADD TO WISHLIST</h1>
+            </div>
+        </div>
+        <div class="descriptions">
+            <h1>DESCRIPTION</h1>
+            <div class="shortDescr"><%= product.short_description%></div>
+            <% if(product.long_description.length != 0){ %>
+                <div class="longDescr"><%= product.long_description%></div>
+           <% }%>
         </div>
     </div>
 <%- include footer.ejs %>

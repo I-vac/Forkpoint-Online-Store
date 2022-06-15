@@ -1,0 +1,57 @@
+.container{
+    font-family: 'Montserrat';
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10rem;
+    gap:1.5rem;
+
+    .productHeader{
+        .itemNumber{
+            font-size: 1.4rem;
+            color:#888888;
+        }
+        .productName{
+            font-size: 3rem;
+            font-weight: bolder;
+            color:#333333;
+        }
+        .productPrice{
+            font-size: 3rem;
+            color:#888888;
+        }
+    }
+    
+
+    .images{
+        img{
+            max-height: 3.5rem;
+            max-width: 3.5rem;
+        }
+    }
+    .colorVariations{
+        margin-top: 2rem;
+        font-size: 1.4rem;
+        color:#333333;
+        .color{
+            display: flex;
+            flex-direction: row;
+            height: 2rem;
+            width: 2rem;
+            gap:1rem;
+            margin-top: -1rem;
+        }
+    }
+    .sizeNumber{
+        margin-top: 2rem;
+        font-size: 1.4rem;
+        color:#333333;
+        .sizes{
+            display:flex;
+            flex-direction: row;
+            font-size: 1.4rem;
+            gap:1rem;
+        }
+    }
+    
+}
