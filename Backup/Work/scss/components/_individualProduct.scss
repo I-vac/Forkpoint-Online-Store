@@ -4,54 +4,194 @@
     display: flex;
     flex-wrap: wrap;
     row-gap: 10rem;
-    gap:1.5rem;
+    gap:1rem;
 
-    .productHeader{
-        .itemNumber{
-            font-size: 1.4rem;
-            color:#888888;
-        }
-        .productName{
-            font-size: 3rem;
-            font-weight: bolder;
-            color:#333333;
-        }
-        .productPrice{
-            font-size: 3rem;
-            color:#888888;
+    .selectorButtons{
+        font-size: 5rem;
+        text-align: center;
+        .selectorImages{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 10rem;
+
+            .selectedImage{
+                max-width: 35rem;
+            }
         }
     }
+    .mainContent{
+        max-width: 35rem;
     
-
-    .images{
-        img{
-            max-height: 3.5rem;
-            max-width: 3.5rem;
+        .productHeader{
+            .itemNumber{
+                font-size: 1.4rem;
+                color:#888888;
+            }
+            .productName{
+                font-size: 3rem;
+                font-weight: bolder;
+                color:#333333;
+            }
+            .productPrice{
+                font-size: 3rem;
+                color:#888888;
+            }
         }
+
+        .colorVariations{
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            color:#333333;
+            .color{
+                display: flex;
+                flex-direction: row;
+                height: 2rem;
+                width: 2rem;
+                gap:1rem;
+                margin-top: -1rem;
+            }
+        }
+
+        .sizeNumber{
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            color:#333333;
+            .sizes{
+                display:flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-size: 1.4rem;
+                gap:1rem;
+            }
+            button{
+                border:2px solid white;
+                border-bottom: 5px solid white;
+            }
+        
+            .selected{
+                border:2px solid #e70026;
+                border-bottom: 5px solid #e70026;
+            }
+        }
+        
+        .quantity{
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            color:#333333;
+            padding-left: 1rem;
+            
+            .row{
+                display: flex;
+                flex-direction: row;
+                gap:5rem;
+
+                .buttons{
+                    display: flex;
+                    flex-direction: row;
+                    border: 1px solid #cbcbcb;
+                    background-color:white;
+                    height: 3rem;
+                    width: 9rem;
+                    .minus{
+                        width: 2.5rem;
+                    }
+                    .input {
+                        text-align: center;
+                        width: 4rem;
+                        border: white;
+                        border-left: 1px solid #cbcbcb;
+                        border-right: 1px solid #cbcbcb;
+                        pointer-events: none; //so you cannot manually put numbers in
+                    }
+                    .plus{
+                        width: 2.5rem;
+                    }
+                }
+                .cart{
+                    background-color: #e70026 ; 
+                    width:18rem;
+                    height: 3rem;
+                    text-align: center;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    button{
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                        color: white;
+                    }
+                }
+            }
     }
-    .colorVariations{
-        margin-top: 2rem;
-        font-size: 1.4rem;
-        color:#333333;
-        .color{
+
+    .socials{
+        p{
+            font-size: 1.4rem;
+            color: #333333;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        .share{
             display: flex;
             flex-direction: row;
-            height: 2rem;
-            width: 2rem;
-            gap:1rem;
-            margin-top: -1rem;
+
+            .images{
+                display: flex;
+                flex-direction: row;
+                max-height: 2.2rem;
+                max-width: 2.2rem;
+                gap:0.2rem;
+                margin-right: 6rem;
+            }
+            .wishlist{
+                display: flex;
+                flex-direction: row;
+                margin-left: 6rem;
+
+                img{
+                    max-height: 2.2rem;
+                    max-width: 2.2rem;
+                }
+                div{
+                    margin-left: 0.5rem;
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                    color:#888888;
+                }
+            }
         }
     }
-    .sizeNumber{
-        margin-top: 2rem;
-        font-size: 1.4rem;
+}
+    .descriptionField{
+        font-size: 3rem;
         color:#333333;
-        .sizes{
-            display:flex;
+        font-weight: bold;
+        .descriptions{
+            display: flex;
             flex-direction: row;
             font-size: 1.4rem;
+            color:#333333;
             gap:1rem;
+            .shortDescr{
+                max-width: 35rem;
+            }
+            .longDescr{
+                max-width: 35rem;
+                ul{
+                    list-style-type: square;
+                }
+                li {
+                    list-style-type: none;
+                    position: relative;
+                }
+                li::before {
+                    content: '■';
+                    position: absolute;
+                    left: -1.5rem;
+                    font-size: 1.5rem;
+                    color: #cbcbcb;
+                }
+            }
         }
     }
-    
 }

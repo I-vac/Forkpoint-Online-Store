@@ -3905,37 +3905,143 @@ a {
   display: flex;
   flex-wrap: wrap;
   row-gap: 10rem;
-  gap: 1.5rem; }
-  .container .productHeader .itemNumber {
-    font-size: 1.4rem;
-    color: #888888; }
-  .container .productHeader .productName {
-    font-size: 3rem;
-    font-weight: bolder;
-    color: #333333; }
-  .container .productHeader .productPrice {
-    font-size: 3rem;
-    color: #888888; }
-  .container .images img {
-    max-height: 3.5rem;
-    max-width: 3.5rem; }
-  .container .colorVariations {
-    margin-top: 2rem;
-    font-size: 1.4rem;
-    color: #333333; }
-    .container .colorVariations .color {
+  gap: 1rem; }
+  .container .selectorButtons {
+    font-size: 5rem;
+    text-align: center; }
+    .container .selectorButtons .selectorImages {
       display: flex;
-      flex-direction: row;
-      height: 2rem;
-      width: 2rem;
-      gap: 1rem;
-      margin-top: -1rem; }
-  .container .sizeNumber {
-    margin-top: 2rem;
-    font-size: 1.4rem;
-    color: #333333; }
-    .container .sizeNumber .sizes {
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 10rem; }
+      .container .selectorButtons .selectorImages .selectedImage {
+        max-width: 35rem; }
+  .container .mainContent {
+    max-width: 35rem; }
+    .container .mainContent .productHeader .itemNumber {
+      font-size: 1.4rem;
+      color: #888888; }
+    .container .mainContent .productHeader .productName {
+      font-size: 3rem;
+      font-weight: bolder;
+      color: #333333; }
+    .container .mainContent .productHeader .productPrice {
+      font-size: 3rem;
+      color: #888888; }
+    .container .mainContent .colorVariations {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      color: #333333; }
+      .container .mainContent .colorVariations .color {
+        display: flex;
+        flex-direction: row;
+        height: 2rem;
+        width: 2rem;
+        gap: 1rem;
+        margin-top: -1rem; }
+    .container .mainContent .sizeNumber {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      color: #333333; }
+      .container .mainContent .sizeNumber .sizes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 1.4rem;
+        gap: 1rem; }
+      .container .mainContent .sizeNumber button {
+        border: 2px solid white;
+        border-bottom: 5px solid white; }
+      .container .mainContent .sizeNumber .selected {
+        border: 2px solid #e70026;
+        border-bottom: 5px solid #e70026; }
+    .container .mainContent .quantity {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      color: #333333;
+      padding-left: 1rem; }
+      .container .mainContent .quantity .row {
+        display: flex;
+        flex-direction: row;
+        gap: 5rem; }
+        .container .mainContent .quantity .row .buttons {
+          display: flex;
+          flex-direction: row;
+          border: 1px solid #cbcbcb;
+          background-color: white;
+          height: 3rem;
+          width: 9rem; }
+          .container .mainContent .quantity .row .buttons .minus {
+            width: 2.5rem; }
+          .container .mainContent .quantity .row .buttons .input {
+            text-align: center;
+            width: 4rem;
+            border: white;
+            border-left: 1px solid #cbcbcb;
+            border-right: 1px solid #cbcbcb;
+            pointer-events: none; }
+          .container .mainContent .quantity .row .buttons .plus {
+            width: 2.5rem; }
+        .container .mainContent .quantity .row .cart {
+          background-color: #e70026;
+          width: 18rem;
+          height: 3rem;
+          text-align: center;
+          padding-top: 5px;
+          padding-bottom: 5px; }
+          .container .mainContent .quantity .row .cart button {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white; }
+    .container .mainContent .socials p {
+      font-size: 1.4rem;
+      color: #333333;
+      font-weight: bold;
+      margin-bottom: 0; }
+    .container .mainContent .socials .share {
+      display: flex;
+      flex-direction: row; }
+      .container .mainContent .socials .share .images {
+        display: flex;
+        flex-direction: row;
+        max-height: 2.2rem;
+        max-width: 2.2rem;
+        gap: 0.2rem;
+        margin-right: 6rem; }
+      .container .mainContent .socials .share .wishlist {
+        display: flex;
+        flex-direction: row;
+        margin-left: 6rem; }
+        .container .mainContent .socials .share .wishlist img {
+          max-height: 2.2rem;
+          max-width: 2.2rem; }
+        .container .mainContent .socials .share .wishlist div {
+          margin-left: 0.5rem;
+          font-size: 1.3rem;
+          font-weight: bold;
+          color: #888888; }
+  .container .descriptionField {
+    font-size: 3rem;
+    color: #333333;
+    font-weight: bold; }
+    .container .descriptionField .descriptions {
       display: flex;
       flex-direction: row;
       font-size: 1.4rem;
+      color: #333333;
       gap: 1rem; }
+      .container .descriptionField .descriptions .shortDescr {
+        max-width: 35rem; }
+      .container .descriptionField .descriptions .longDescr {
+        max-width: 35rem; }
+        .container .descriptionField .descriptions .longDescr ul {
+          list-style-type: square; }
+        .container .descriptionField .descriptions .longDescr li {
+          list-style-type: none;
+          position: relative; }
+        .container .descriptionField .descriptions .longDescr li::before {
+          content: '■';
+          position: absolute;
+          left: -1.5rem;
+          font-size: 1.5rem;
+          color: #cbcbcb; }
