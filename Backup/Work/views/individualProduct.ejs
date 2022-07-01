@@ -1,39 +1,56 @@
 <%-include header.ejs %>
     <div class="row container">
        
-        <div class="carousel">
-            <div class="selectorButtons" data-index="0">
-                <button class="arrowUP" id="arrowUP">↑</button>
+        <div class="carousel" data-state="0">
+            <div class="selectorButtons" >
+                <button class="arrowUP">↑</button>
                 <div class="selectorImages" id="selectorImages">
                     <% _.each(product.image_groups, function(image_group, i) { %>
                         <% if (image_group.view_type === "large" && image_group.images[0].link){ %>
-                            <img  data-index= "<%=i%>" class="image<%= (i===0)? ' active': ''%>" src="/images/<%= image_group.images[0].link%>"></img>
+                            <img data-index= "<%=i%>" class="image<%= (i===0)? ' active': ''%>" src="/images/<%= image_group.images[0].link%>"></img>
                         <% } %>
                     <% }); %>
                 </div>
-                <button class="arrowDOWN" id="arrowDOWN">↓</button>
+                <button class="arrowDOWN">↓</button>
             </div>
 
             <div class="selectedImage">
                 <% if (product.image_groups[0].view_type === "large" && product.image_groups[0].images[0].link){ %>
-                    <img class="mainImage" id="image" src="/images/<%= product.image_groups[0].images[0].link%>"></img>
+                    <img class="mainImage" src="/images/<%= product.image_groups[0].images[0].link%>"></img>
                 <% } %>
             </div>
         </div>
+        
 
         <div class="mainContent">
             <div class="productHeader">
                 <div class="itemNumber">Item No. <%=product.id %></div>
                 <hr style="margin:0">
                 <div class="productName"><%=product.name%></div>
-                <div class="productPrice"><%=product.price%> <%= product.currency %></div>
+                <div class="PriceAndCurrency">
+                    <div class="productPrice" data-price="<%=product.price%>">
+                    <%=product.price%>
+                    </div>
+                    <select class="chooseCurrency">
+                        <% _.each(currencies, function(currency){ %>
+                            <% if (currency === product.currency){ %>
+                                <option selected="selected" value="<%= product.currency %>">
+                                    <%= product.currency %>
+                                </option>
+                            <% } else { %>
+                                <option class="options" value="<%=currency%>" >
+                                    <%=currency%>
+                                </option>
+                        <% } %>
+                            <% }) %>
+                    </select> 
+                </div>
                 <hr style="margin:0">
             </div>
 
             <div class="colorVariations">
                 <p>Color</p>
                 <div class="color">
-                
                     <% _.each(product.image_groups, function(image_group){ %>
                         <% if (image_group.view_type === "swatch"){ %>
                             <% _.each(image_group.images, function(link){ %>

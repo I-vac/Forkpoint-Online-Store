@@ -6,20 +6,39 @@
     row-gap: 10rem;
     gap:1rem;
 
-    .selectorButtons{
-        font-size: 5rem;
-        text-align: center;
-        .selectorImages{
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            max-width: 10rem;
-
-            .selectedImage{
-                max-width: 35rem;
+    .carousel{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        height:36rem;
+        .selectorButtons{
+            font-size: 3rem;
+            text-align: center;
+            .selectorImages{
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                max-width: 5rem;
+                max-height: 36rem; 
+                border: 1px solid white;
+                overflow-y: auto;
+                
+                .active{
+                    border: 1px solid red;
+                }
+                .image{
+                    cursor: pointer;
+                }
+            }
+        }
+        .selectedImage{
+            .mainImage{
+                max-width: 33rem;
+                max-height: 36rem;
             }
         }
     }
+    
     .mainContent{
         max-width: 35rem;
     
@@ -33,10 +52,26 @@
                 font-weight: bolder;
                 color:#333333;
             }
-            .productPrice{
-                font-size: 3rem;
-                color:#888888;
+            .PriceAndCurrency{
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+                align-items: center;
+                .productPrice{
+                    font-size: 3rem;
+                    color:#888888;
+                }
+                .chooseCurrency{
+                    font-size: 1.5rem;
+                    color:#888888;
+                    text-align: center;
+                    margin-bottom: 0px;
+                    padding-bottom: 3px;
+                    max-height: 7rem;
+                    max-width: 8rem;
+                }
             }
+           
         }
 
         .colorVariations{

@@ -3801,7 +3801,8 @@ a {
   width: 100%;
   background-color: #1e1e1e;
   color: white;
-  text-align: center; }
+  text-align: center;
+  font-size: 1.5rem; }
 
 .home-page {
   background: url("/images/home-bg.jpg") no-repeat center center fixed;
@@ -3906,16 +3907,29 @@ a {
   flex-wrap: wrap;
   row-gap: 10rem;
   gap: 1rem; }
-  .container .selectorButtons {
-    font-size: 5rem;
-    text-align: center; }
-    .container .selectorButtons .selectorImages {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      max-width: 10rem; }
-      .container .selectorButtons .selectorImages .selectedImage {
-        max-width: 35rem; }
+  .container .carousel {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    height: 36rem; }
+    .container .carousel .selectorButtons {
+      font-size: 3rem;
+      text-align: center; }
+      .container .carousel .selectorButtons .selectorImages {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 5rem;
+        max-height: 36rem;
+        border: 1px solid white;
+        overflow-y: auto; }
+        .container .carousel .selectorButtons .selectorImages .active {
+          border: 1px solid red; }
+        .container .carousel .selectorButtons .selectorImages .image {
+          cursor: pointer; }
+    .container .carousel .selectedImage .mainImage {
+      max-width: 33rem;
+      max-height: 36rem; }
   .container .mainContent {
     max-width: 35rem; }
     .container .mainContent .productHeader .itemNumber {
@@ -3925,9 +3939,22 @@ a {
       font-size: 3rem;
       font-weight: bolder;
       color: #333333; }
-    .container .mainContent .productHeader .productPrice {
-      font-size: 3rem;
-      color: #888888; }
+    .container .mainContent .productHeader .PriceAndCurrency {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center; }
+      .container .mainContent .productHeader .PriceAndCurrency .productPrice {
+        font-size: 3rem;
+        color: #888888; }
+      .container .mainContent .productHeader .PriceAndCurrency .chooseCurrency {
+        font-size: 1.5rem;
+        color: #888888;
+        text-align: center;
+        margin-bottom: 0px;
+        padding-bottom: 3px;
+        max-height: 7rem;
+        max-width: 8rem; }
     .container .mainContent .colorVariations {
       margin-top: 2rem;
       font-size: 1.4rem;

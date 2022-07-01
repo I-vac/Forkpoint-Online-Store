@@ -1,4 +1,8 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-console */
+/* eslint-disable no-param-reassign */
 /* eslint-disable global-require */
+
 // Module dependencies.
 const express = require('express');
 const http = require('http');
@@ -6,6 +10,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+// const soap = require('soap');
 
 const routes = {
   index: require('./routes/index'),
@@ -14,6 +19,7 @@ const routes = {
   category: require('./routes/category'),
   products: require('./routes/products'),
   individualProduct: require('./routes/individualProduct'),
+  currencyConverter: require('./routes/currencyConverter'),
 };
 
 const app = express();
@@ -48,10 +54,9 @@ app.get('/home', routes.home);
 app.get('/category/:id', routes.category);
 app.get('/category/:id/:primary_category_id', routes.products);
 app.get('/product/:id', routes.individualProduct);
-
+app.get('/convert-currency', routes.currencyConverter);
 
 // Run server
 http.createServer(app).listen(app.get('port'), () => {
-  // eslint-disable-next-line no-console
   console.log(`Express server listening on port ${app.get('port')}`);
 });
