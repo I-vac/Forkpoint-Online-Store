@@ -1,6 +1,20 @@
 <%-include header.ejs %>
     <div class="bodyContainer">
-        <div >
+            <div class="row filtersTab">
+                <button class="accordion">COLOR</button>
+                <div class="content">
+                    <% _.each(filters.swatches, function(link){ %>
+                        <img src="/images/<%= link %>"></img>
+                    <% }) %>
+                     
+                </div>
+                <button class="accordion">SIZE</button>
+                <div class="content">
+                   <% _.each(filters.sizes, function(sizes){  %>
+                    <button class="filterSizes"><%= sizes %></button>
+                   <% }) %>   
+                </div>
+            </div>
             <ol class="row productCardContainer">
                 <% _.each(items, function(product) { %>   
                     <a href="/product/<%=product.id%>">
@@ -35,10 +49,9 @@
                         </div>
                         <hr style="margin:0">
                         <div class="price"><%= product.price %> <%= product.currency %></div>
-                </li>
-                </a>
+                    </li>
+                    </a>
                 <% }); %>
             </ol>
-        </div>
     </div>
 <%- include footer.ejs %>
