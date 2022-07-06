@@ -24,12 +24,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.cookieParser('61d333a8-6325-4506-96e7-a180035cc26f'));
-app.use(session({
-  secret: 'forkpoint training',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true },
-}));
+app.use(
+  session({
+    secret: 'forkpoint training',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  }),
+);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
@@ -37,7 +39,9 @@ app.use(express.errorHandler());
 
 // App routes
 app.get('/', routes.index);
-app.get('/hello', routes.hello);
+app.get('/hello/', routes.hello);
+app.get('/home/', routes.home);
+
 
 // Run server
 http.createServer(app).listen(app.get('port'), () => {

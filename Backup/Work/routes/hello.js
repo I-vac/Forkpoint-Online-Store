@@ -3,7 +3,7 @@ const mdbClient = require('mongodb').MongoClient;
 
 module.exports = function routeHello(req, res) {
   mdbClient.connect('mongodb://localhost:27017', (err, client) => {
-    const db = client.db('shop');
+    const db = client.db('ForkpointDB');
     const collection = db.collection('categories');
 
     collection.find().toArray((collErr, items) => {
