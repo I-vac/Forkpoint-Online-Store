@@ -137,12 +137,20 @@ $('.activeSize').click(function () {
   $(this).addClass('selected').siblings().removeClass('selected');
 });
 
+$('.color img').click(function () {
+  $(this).addClass('selected').siblings().removeClass('selected');
+});
+
 $('.content img').click(function () {
   $(this).toggleClass('selected');
 });
 
 $('.filterSizes').click(function () {
   $(this).toggleClass('selected');
+});
+
+$('.menuitem').click(function () {
+  $(this).addClass('active').siblings().removeClass('active');
 });
 
 

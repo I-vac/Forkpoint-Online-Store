@@ -11,31 +11,35 @@
         <div class="header-wrapper">
             <div class="saleMsg">FREE SHIPPING ON ALL ORDERS ABOVE 99€</div>
 
-              <div class="top-bar" id="responsive-menu">
-                <div class="top-bar-left">
-                  <ul class="menu">
-                    <li><a <%if (title==='home'){%> <%= 'class=active'%> <%}%> href='/home'>HOME</a></li>
-                    <li ><a <%if (title==='hello'){%> <%= 'class=active'%> <%}%> href='/hello'>HELLO</a></li>
-                    <li><a  href='/category/mens'>MEN</a></li>
-                    <li><a  href="/category/womens">WOMEN</a></li>
-                    <li><a href="#0">NEWS</a></li>
-                  </ul>
-                </div>
-                <div class="top-bar-right">
-                  <ul class="menu">
-                    <li><a href="#0">Store Locator</a></li>
-                    <li><a href="#0">Login</a></li>
-                    <li><a href="#0">Order status</a></li>
-                  </ul>
-                </div>
+            <nav tabindex="0">
+              <ul role="menubar" aria-haspopup="true">
+              <div class="leftSide">
+                <li role="menuitem" aria-label="MEN" class="menuitem active">
+                  <a href="/home">HOME</a>
+                </li>
+
+                <li role="menuitem" aria-label="MEN" class="menuitem" >
+                  <a href="/category/mens">MEN</a>
+                </li>
+      
+                <li role="menuitem" aria-label="WOMEN" class="menuitem">
+                  <a href="/category/womens">WOMEN</a> 
+                </li>
               </div>
-              <nav role="navigation">
-                <ul class="breadcrumbs">
-                  <li><a href='home'>Home</a></li>
-                  <li><a href='hello'>Hello</a></li>
-                  <li><a href='men'>Men</a></li>
-                  <li><a href="#">Women</a></li>
-                </ul>
-              </nav>
+              <div class="rightSide">
+                <li role="menuitem" aria-label="Blog" class="menuitem">
+                  <img src="/images/location.png">
+                  <a href="#">Store Locator</a>
+                </li>
+      
+                <li role="menuitem" aria-label="About" class="menuitem">
+                  <img src="/images/login.png">
+                  <a href="#">Login</a>
+                </li>
+              </div>
+
+              </ul>
+            </nav>
+            <button class="close-mobile-menu">x</button>
         </div>
     </body>

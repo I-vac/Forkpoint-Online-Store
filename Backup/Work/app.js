@@ -13,8 +13,6 @@ const session = require('express-session');
 // const soap = require('soap');
 
 const routes = {
-  index: require('./routes/index'),
-  hello: require('./routes/hello'),
   home: require('./routes/home'),
   category: require('./routes/category'),
   products: require('./routes/products'),
@@ -48,8 +46,6 @@ app.use(app.router);
 app.use(express.errorHandler());
 
 // App routes
-app.get('/', routes.index);
-app.get('/hello', routes.hello);
 app.get('/home', routes.home);
 app.get('/category/:id', routes.category);
 app.get('/category/:id/:primary_category_id', routes.products);

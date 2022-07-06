@@ -1,9 +1,29 @@
+
 .home-page{
     background:url("/images/home-bg.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
+    .body-wrapper{
+        display: flex;
+        flex-direction: row;
+        gap:5rem;
+        margin-left: 30rem;
+        margin-right: 30rem;
+        
+        .logo{
+            max-height:70rem;
+            padding-top: 10rem;
+        }
+        .text{
+            font-size: medium;
+            width:50%;
+            padding-top: 10rem;
+        }
+    }
+    
 }
 .text{
     padding-top:40rem;
