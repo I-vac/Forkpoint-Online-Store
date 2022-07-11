@@ -1,9 +1,15 @@
+:root{
+    font-size: 10px;
+}
+
+
+
 @import "foundation/foundation";
 
 @include foundation-global-styles;
-@include foundation-xy-grid-classes;
+// @include foundation-xy-grid-classes;
 // @include foundation-grid;
-// @include foundation-flex-grid;
+@include foundation-flex-grid;
 @include foundation-flex-classes;
 @include foundation-typography;
 @include foundation-forms;
@@ -47,3 +53,9 @@
 @import "components/header";
 @import "components/index";
 @import "components/footer";
+@import "components/home";
+@import "components/category";
+@import "components/products";
+@import "components/individualProduct";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');

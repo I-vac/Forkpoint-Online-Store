@@ -3,9 +3,43 @@
     <head>
         <title><%= title %></title>
         <link rel="stylesheet" href="/stylesheets/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     </head>
   	
     <body>
         <div class="header-wrapper">
-            <span class="headerNotification">Hi! I'm header.ejs</span>
+            <div class="saleMsg">FREE SHIPPING ON ALL ORDERS ABOVE 99€</div>
+
+            <nav tabindex="0">
+              <ul role="menubar" aria-haspopup="true">
+              <div class="leftSide">
+                <li role="menuitem" aria-label="MEN" class="menuitem active">
+                  <a href="/home">HOME</a>
+                </li>
+
+                <li role="menuitem" aria-label="MEN" class="menuitem" >
+                  <a href="/category/mens">MEN</a>
+                </li>
+      
+                <li role="menuitem" aria-label="WOMEN" class="menuitem">
+                  <a href="/category/womens">WOMEN</a> 
+                </li>
+              </div>
+              <div class="rightSide">
+                <li role="menuitem" aria-label="Blog" class="menuitem">
+                  <img src="/images/location.png">
+                  <a href="#">Store Locator</a>
+                </li>
+      
+                <li role="menuitem" aria-label="About" class="menuitem">
+                  <img src="/images/login.png">
+                  <a href="#">Login</a>
+                </li>
+              </div>
+
+              </ul>
+            </nav>
+            <button class="close-mobile-menu">x</button>
         </div>
+    </body>
