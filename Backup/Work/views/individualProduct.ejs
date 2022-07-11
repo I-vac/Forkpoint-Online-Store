@@ -32,13 +32,13 @@
                     <%=product.price%>
                     </div>
                     <select class="chooseCurrency">
-                        <% _.each(currencies, function(currency){ %>
+                        <% _.each(Object.entries(currencies), function([currency, value]){ %>
                             <% if (currency === product.currency){ %>
-                                <option selected="selected" value="<%= product.currency %>">
+                                <option selected="selected" value="<%= product.currency %>" data-currency-value="<%= value%>">
                                     <%= product.currency %>
                                 </option>
                             <% } else { %>
-                                <option class="options" value="<%=currency%>" >
+                                <option class="options" value="<%= currency %>" data-currency-value="<%= value%>">
                                     <%=currency%>
                                 </option>
                         <% } %>

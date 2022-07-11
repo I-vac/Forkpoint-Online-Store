@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
-const { response } = require('express');
 const soap = require('soap');
 
-module.exports = function Converter(selectedCurrency, price) {
+module.exports = function Converter(price) {
   const url = 'http://infovalutar.ro/curs.asmx?wsdl';
   let currency;
   const currencies = ['USD', 'GBP', 'EUR', 'BGN', 'TRY'];
@@ -38,14 +40,15 @@ module.exports = function Converter(selectedCurrency, price) {
             return obj;
           }, {});
         currency = await query;
+        const convertedPrices = {};
+        let newPrice;
         const baseConvert = Math.floor(price * currency.USD);
-        if (selectedCurrency !== 'USD') {
-          const newPrice = Math.floor(baseConvert / currency[selectedCurrency]);
-          console.log(`new price in ${selectedCurrency}`, newPrice);
-          console.log('price in USD', price);
-          return resolve(newPrice);
-        }
-        return resolve(price);
+
+        Object.entries(currency).forEach(([key, value]) => {
+          newPrice = Math.floor(baseConvert / `${value}`);
+          convertedPrices[key] = newPrice;
+        });
+        return resolve(convertedPrices);
       });
     });
   }));

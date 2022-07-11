@@ -10,7 +10,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-// const soap = require('soap');
+const mongo = require('./routes/mongo');
+
+let dbObj;
 
 const routes = {
   home: require('./routes/home'),
@@ -47,12 +49,20 @@ app.use(express.errorHandler());
 
 // App routes
 app.get('/home', routes.home);
-app.get('/category/:id', routes.category);
-app.get('/category/:id/:primary_category_id', routes.products);
-app.get('/product/:id', routes.individualProduct);
-app.get('/convert-currency', routes.currencyConverter);
+app.get('/category/:id', (req, res) => routes.category(req, res, dbObj));
+app.get('/category/:id/:primary_category_id', (req, res) => routes.products(req, res, dbObj));
+app.get('/product/:id', (req, res) => routes.individualProduct(req, res, dbObj));
+// app.get('/convert-currency', routes.currencyConverter);
 
-// Run server
-http.createServer(app).listen(app.get('port'), () => {
-  console.log(`Express server listening on port ${app.get('port')}`);
+mongo.connectMongo((res) => {
+  if (res.success) {
+    http.createServer(app).listen(app.get('port'), () => {
+      console.log(`Express server listening on port ${app.get('port')}`);
+    });
+    console.log('Connected successfully to MongoDB');
+    dbObj = res.dbObj;
+  } else {
+    console.log('Error connecting to the MongoDB');
+  }
 });
+// Run server

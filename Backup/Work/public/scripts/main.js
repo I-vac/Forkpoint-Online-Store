@@ -91,16 +91,18 @@ if (currencySelector) {
     });
     selectedElement.classList.add('selected');
     document.querySelector('.selected').textContent = selectedElement.value;
-    const selectedCurrency = selectedElement.value;
-    const priceValue = priceElement.dataset.price;
+    const selectedCurrency = selectedElement;
+    const priceValue = selectedCurrency.dataset.currencyValue;
+    priceElement.textContent = priceValue;
     console.log(priceValue);
     console.log('selected currency', selectedCurrency);
 
 
-    const json = {
-      priceValue,
-      selectedCurrency,
-    };
+    // const json = {
+    //   priceValue,
+    //   selectedCurrency,
+    // };
+
 
     // $.ajax({
     //   type: 'POST',
@@ -115,20 +117,20 @@ if (currencySelector) {
     //   },
     // });
 
-    fetch(`/convert-currency?price=${priceValue}&selectedCurrency=${selectedCurrency}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(response => response.json())
-      .then((json) => {
-        console.log('Success:', json);
-        priceElement.textContent = json.newPrice;
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+  //   fetch(`/convert-currency?price=${priceValue}&selectedCurrency=${selectedCurrency}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(response => response.json())
+  //     .then((json) => {
+  //       console.log('Success:', json);
+  //       priceElement.textContent = json.newPrice;
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     });
   });
 }
 
