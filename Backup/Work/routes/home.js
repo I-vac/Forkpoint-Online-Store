@@ -1,6 +1,6 @@
 module.exports = function routeHome(req, res) {
   res.render('home', {
-    // Template data
-    title: 'home',
+  // Template data
+    title: 'Express',
   });
 };

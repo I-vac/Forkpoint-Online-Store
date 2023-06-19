@@ -12,7 +12,7 @@ $topbar-padding: 0.5rem !default;
 
 /// Background color for the top bar. This color also cascades to menus within the top bar.
 /// @type Color
-$topbar-background:rgb(30,30,30)  !default;
+$topbar-background: $light-gray !default;
 
 /// Background color submenus within the top bar. Usefull if $topbar-background is transparent.
 /// @type Color
@@ -28,7 +28,7 @@ $topbar-input-width: 200px !default;
 
 /// Breakpoint at which top bar switches from mobile to desktop view.
 /// @type Breakpoint
-$topbar-unstack-breakpoint: small !default;
+$topbar-unstack-breakpoint: medium !default;
 
 /// Adds styles for a top bar container.
 @mixin top-bar-container {
@@ -83,8 +83,6 @@ $topbar-unstack-breakpoint: small !default;
     .top-bar-right {
       flex: 0 0 100%;
       max-width: 100%;
-      margin-left: 60px;
-      margin-right: 60px;
     }
   }
   @else {
@@ -162,7 +160,7 @@ $topbar-unstack-breakpoint: small !default;
       padding: $topbar-title-spacing;
 
       .menu-icon {
-        bottom: 0.2rem;
+        bottom: 2px;
       }
     }
 
@@ -173,11 +171,5 @@ $topbar-unstack-breakpoint: small !default;
     .top-bar-right {
       float: right;
     }
-  }
-}
-.top-bar {
-  .active{
-    background-color: white;
-    color:black;
   }
 }
