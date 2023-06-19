@@ -1,6 +1,8 @@
 const _ = require('underscore');
 const converter = require('../helpers/currencyConverter');
 
+const { accountSid, authToken } = require('../app');
+
 module.exports = async function routeCategory(req, res, dbObj) {
   const result = req.params.id;
 
@@ -8,10 +10,14 @@ module.exports = async function routeCategory(req, res, dbObj) {
 
   const currencies = await converter(product.price);
 
-  res.render('individualProduct', {
+  const locals = {
     _,
     title: 'individualProduct',
     product,
     currencies,
-  });
+    accountSid,
+    authToken,
+  };
+
+  res.render('individualProduct', locals);
 };
