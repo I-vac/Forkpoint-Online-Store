@@ -17,15 +17,11 @@ const options = Array.from(document.getElementsByClassName('options'));
 const priceElement = document.querySelector('.productPrice');
 const acc = document.getElementsByClassName('accordion');
 let currentIndex;
-// let previous;
-// $('select[class=chooseCurrency]').focus(function () {
-//   previous = this.value;
-// }).change(() => {
-//   console.log('prev value', previous);
-// });
+
 if (imgRef) {
   currentIndex = imgRef.dataset.index;
 }
+
 function ChangeClassActive(selectedElement) {
   images.forEach((image) => {
     image.classList.remove('active');
@@ -55,7 +51,6 @@ arrowDOWN.forEach((element) => {
     console.log(selectedElement);
   });
 });
-
 
 image.forEach((element) => {
   element.addEventListener('click', (event) => {
@@ -96,44 +91,8 @@ if (currencySelector) {
     priceElement.textContent = priceValue;
     console.log(priceValue);
     console.log('selected currency', selectedCurrency);
-
-
-    // const json = {
-    //   priceValue,
-    //   selectedCurrency,
-    // };
-
-
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/convert-currency',
-    //   dataType: 'json',
-    //   data: json,
-    //   success: (data) => {
-    //     console.log('SUCCESS: ', data);
-    //   },
-    //   error: (data) => {
-    //     console.log('ERROR: ', data);
-    //   },
-    // });
-
-  //   fetch(`/convert-currency?price=${priceValue}&selectedCurrency=${selectedCurrency}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then(response => response.json())
-  //     .then((json) => {
-  //       console.log('Success:', json);
-  //       priceElement.textContent = json.newPrice;
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //     });
   });
 }
-
 
 $('.activeSize').click(function () {
   $(this).addClass('selected').siblings().removeClass('selected');
@@ -155,7 +114,6 @@ $('.menuitem').click(function () {
   $(this).addClass('active').siblings().removeClass('active');
 });
 
-
 let i;
 
 for (i = 0; i < acc.length; i++) {
@@ -169,3 +127,90 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+function sendSMS() {
+  const quantity = document.querySelector('.input').value;
+  const product = document.querySelector('.productName').textContent;
+  const phoneNumber = '+359887692910';
+  const message = `Thank you for your purchase! You have added ${quantity} of ${product} to your cart.`;
+
+  // Make an HTTP request to the Twilio API
+  fetch('/send-sms', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ phoneNumber, message }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response from the Twilio API
+      console.log('SMS sent successfully');
+    })
+    .catch(error => {
+      console.error('Error sending SMS:', error);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all the color swatches
+  const colorSwatches = document.querySelectorAll(".colorSwatch");
+
+  // Add click event listener to each color swatch
+  colorSwatches.forEach(function(swatch) {
+    swatch.addEventListener("click", function() {
+      // Remove 'selected' class from all color swatches
+      colorSwatches.forEach(function(swatch) {
+        swatch.classList.remove("selected");
+      });
+
+      // Add 'selected' class to the clicked color swatch
+      this.classList.add("selected");
+
+      // Get the selected color from the src attribute of the clicked swatch
+      const selectedColor = this.getAttribute("src").split("/").pop().split("_")[0];
+
+      // Loop through each product item
+      const productItems = document.querySelectorAll(".productItem");
+      productItems.forEach(function(item) {
+        // Get all the color variations for the current product item
+        const colorVariations = item.querySelectorAll(".color_variations img");
+
+        // Check if any color variation matches the selected color
+        let hasMatch = false;
+        colorVariations.forEach(function(variation) {
+          const variationColor = variation.getAttribute("src");
+          const variationColorCode = variationColor.split("/").pop().split("_")[0];
+          console.log("selected color:", selectedColor);
+          console.log("variation color:", variationColorCode);
+          if (variationColorCode === selectedColor) {
+            hasMatch = true;
+          }
+        });
+
+        // Toggle the visibility of product item based on the color match
+        if (hasMatch) {
+          item.style.removeProperty("display");
+        } else {
+          item.style.display = "none";
+        }
+        console.log("product item visibility:", item.style.display);
+      });
+    });
+  });
+
+  // Add click event listener to the "Remove Filters" button
+  const removeFiltersButton = document.getElementById("removeFiltersButton");
+  removeFiltersButton.addEventListener("click", function() {
+    // Remove 'selected' class from all color swatches
+    colorSwatches.forEach(function(swatch) {
+      swatch.classList.remove("selected");
+    });
+
+    // Show all product items
+    const productItems = document.querySelectorAll(".productItem");
+    productItems.forEach(function(item) {
+      item.style.removeProperty("display");
+    });
+  });
+});

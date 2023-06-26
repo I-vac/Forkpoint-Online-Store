@@ -124,28 +124,3 @@
 
     </div>
 <%- include footer.ejs %>
-<script>
-    function sendSMS() {
-        const quantity = document.querySelector('.input').value;
-        const product = document.querySelector('.productName').textContent;
-        const phoneNumber = '+359887692910';
-        const message = `Thank you for your purchase! You have added ${quantity} of ${product} to your cart.`;
-
-        // Make an HTTP request to the Twilio API
-        fetch('/send-sms', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ phoneNumber, message }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from the Twilio API
-                console.log('SMS sent successfully');
-            })
-            .catch(error => {
-                console.error('Error sending SMS:', error);
-            });
-    }
-</script>

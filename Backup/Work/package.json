@@ -6,15 +6,10 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
+    "axios": "1.4.0",
     "body-parser": "^1.18.3",
     "ejs": "*",
     "eslint": "^5.4.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
     "express": "^3.21.2",
     "express-session": "^1.15.6",
     "gulp": "^3.9.1",
@@ -22,9 +17,7 @@
     "gulp-sass": "^4.1.1",
     "method-override": "^3.0.0",
     "mongodb": "^3.7.3",
-    "natives": "^1.1.6",
     "nodemon": "^2.0.16",
-    "soap": "^0.45.0",
     "twilio": "^4.12.0",
     "underscore": "^1.9.1"
   }
